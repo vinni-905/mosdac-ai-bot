@@ -6,13 +6,10 @@ from dotenv import load_dotenv
 
 from langchain_community.document_loaders import JSONLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-# This is the new, correct way to import it
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain.chains import RetrievalQA
 from langchain_openai import ChatOpenAI
-
-# ... (the rest of the file is exactly the same) ...
 
 # --- INITIALIZATION ---
 load_dotenv()
@@ -40,7 +37,6 @@ try:
 
     print("3. Creating vector store with FREE, LOCAL embeddings...")
     model_name = "sentence-transformers/all-MiniLM-L6-v2"
-    # The model path is often specified with the organization
     model_kwargs = {'device': 'cpu'}
     encode_kwargs = {'normalize_embeddings': False}
     embeddings = HuggingFaceEmbeddings(
@@ -71,6 +67,7 @@ def ask_question():
         return jsonify({"error": "AI Brain is not initialized. Please check backend logs for errors."}), 500
 
     data = request.get_json()
+    # THIS LINE IS NOW FIXED
     query = data.get('query')
 
     if not query:
@@ -78,9 +75,13 @@ def ask_question():
 
     print(f"➡️ Received query: {query}")
     try:
-        result = qa_chain.run(query)
-        print(f"⬅️ Sending answer: {result}")
-        response = {"answer": result}
+        # Using .invoke is the newer method for chains
+        result = qa_chain.invoke(query)
+        # The result from .invoke is often a dictionary
+        answer = result.get('result', "I couldn't find a definitive answer.")
+        
+        print(f"⬅️ Sending answer: {answer}")
+        response = {"answer": answer}
         return jsonify(response)
     except Exception as e:
         print(f"Error during query processing: {e}")
