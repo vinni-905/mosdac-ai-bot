@@ -1,0 +1,18 @@
+[
+  {
+    "source": "https://mosdac.gov.in/gallery/3d-earth-view",
+    "content": "The MOSDAC 3D Earth View provides a realistic visualization of Earth from space. It integrates meteorological and oceanographic data from various Indian satellites like INSAT-3D, INSAT-3DR, and Oceansat. Key features include real-time cloud cover, sea surface temperature, ocean winds, and various geophysical parameters. This tool is invaluable for researchers, forecasters, and for educational purposes."
+  },
+  {
+    "source": "https://mosdac.gov.in/faq",
+    "content": "Question: How do I register on MOSDAC? Answer: To register, a user must click on the 'New User Registration' link available on the homepage. You will need to fill in details such as your name, organization, and email. After submission, your request will be reviewed for approval. Question: What data products are available? Answer: MOSDAC provides a wide range of data from oceanographic satellites like the Oceansat series (for ocean color and wind scatterometry) and meteorological satellites like the INSAT series (for imagery, soundings, and weather products). Data is available at different processing levels, from raw (Level-0) to analysis-ready (Level-3/4)."
+  },
+  {
+    "source": "https://mosdac.gov.in/about-us/satellite/oceansat-2",
+    "content": "Oceansat-2 is a key Indian satellite focused on oceanographic studies. It was successfully launched by ISRO in September 2009. It carries two primary sensor payloads: the Ocean Colour Monitor (OCM), which studies ocean chlorophyll and sediment, and a Ku-band pencil-beam Scatterometer (SCAT), which provides data on ocean surface wind speed and direction. This data is critical for climate and weather forecasting."
+  },
+  {
+    "source": "https://mosdac.gov.in/data-products/insat-3dr-data",
+    "content": "INSAT-3DR is an advanced meteorological satellite of India. It carries a 6-channel Imager and a 19-channel Sounder. The Imager provides images of the Earth's surface and cloud cover in visible and infrared channels. The Sounder provides vertical profiles of temperature, humidity, and ozone in the atmosphere. This data is vital for severe weather monitoring, such as tracking cyclones and thunderstorms."
+  }
+]
