@@ -1,4 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // --- CHAT POPUP LOGIC ---
+    const chatPopup = document.getElementById('chat-popup');
+    const chatBubble = document.getElementById('chat-bubble');
+    const closeBtn = document.getElementById('close-btn');
+    const openChatCta = document.getElementById('open-chat-cta');
+
+    const toggleChat = () => {
+        chatPopup.classList.toggle('open');
+    };
+
+    chatBubble.addEventListener('click', toggleChat);
+    closeBtn.addEventListener('click', toggleChat);
+    if(openChatCta) {
+        openChatCta.addEventListener('click', toggleChat);
+    }
+    
+    // --- CHATBOT CORE LOGIC (from before) ---
     const chatBox = document.getElementById('chat-box');
     const userInput = document.getElementById('user-input');
     const sendBtn = document.getElementById('send-btn');
@@ -69,38 +86,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     if (SpeechRecognition) {
         const recognition = new SpeechRecognition();
-        
-        micBtn.addEventListener('click', () => {
-            if (micBtn.classList.contains('listening')) {
-                recognition.stop();
-            } else {
-                recognition.start();
-            }
-        });
-
+        micBtn.addEventListener('click', () => recognition.start());
         recognition.onstart = () => {
             micBtn.classList.add('listening');
-            userInput.placeholder = "Listening... Speak now";
+            userInput.placeholder = "Listening...";
         };
-
         recognition.onend = () => {
             micBtn.classList.remove('listening');
-            userInput.placeholder = "e.g., What data does INSAT-3DR provide?";
+            userInput.placeholder = "Ask anything...";
         };
-
-        recognition.onerror = (event) => {
-            console.error('Speech recognition error', event.error);
-            updateMessage(addMessage('', 'bot'), `Speech error: ${event.error}`);
-        };
-
         recognition.onresult = (event) => {
             const transcript = event.results[0][0].transcript;
             userInput.value = transcript;
-            // Short delay to let user see the transcribed text before sending
             setTimeout(handleUserQuery, 300);
         };
     } else {
         micBtn.style.display = "none";
-        console.log("Speech Recognition not supported in this browser.");
     }
 });

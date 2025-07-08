@@ -3,26 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MOSDAC AI Helper</title>
+    <title>MOSDAC AI Portal - Your Intelligent Gateway to Satellite Data</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛰️</text></svg>">
 </head>
 <body>
-    <div class="chat-container">
-        <div class="header">
-            🛰️ MOSDAC AI Help Bot
+    <header class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">🛰️ MOSDAC AI Portal</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="showcase.html">Data Showcase</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
         </div>
-        <div id="chat-box" class="chat-box">
-            <div class="message bot-message">
-                <p>Hi! I'm an AI assistant trained on MOSDAC portal data. Ask me about satellites, data products, or how to use the site.</p>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Unlock Satellite Data with the Power of AI</h1>
+                <p class="subtitle">Tired of navigating complex menus? Just ask a question. Our intelligent assistant finds the exact ISRO data you need, instantly.</p>
+                <button class="cta-button" id="open-chat-cta">Launch AI Assistant</button>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <h2>Why Use the AI Portal?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>Natural Language</h3>
+                        <p>Ask complex questions in plain English, just like you're talking to an expert.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Instant Answers</h3>
+                        <p>No more endless searching. Get precise information and data links in seconds.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Knowledge-Powered</h3>
+                        <p>Powered by a knowledge graph and RAG to understand context and relationships in data.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2024 MOSDAC AI Portal Team. A Hackathon Project.</p>
+    </footer>
+
+    <!-- ===== CHATBOT UI (Initially Hidden) ===== -->
+    <div class="chat-bubble" id="chat-bubble">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-robot" viewBox="0 0 16 16"><path d="M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5ZM3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.58 26.58 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.933.933 0 0 1-.765.935c-.845.147-2.34.346-4.235.346-1.895 0-3.39-.2-4.235-.346A.933.933 0 0 1 3 9.219V8.062Zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a24.767 24.767 0 0 1-1.871-.183.25.25 0 0 0-.068.495c.55.076 1.232.149 2.02.193a.25.25 0 0 0 .189-.071l.754-.736.847 1.07a.25.25 0 0 0 .404.062l.932-.97a25.286 25.286 0 0 0 1.922-.188.25.25 0 0 0-.068-.495c-.538.074-1.207.145-1.98.189a.25.25 0 0 0-.166.076l-.754.785-.842-1.06a.25.25 0 0 0-.182-.078Z"/><path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1Zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5ZM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5Z"/></svg>
+    </div>
+
+    <div class="chat-popup" id="chat-popup">
+        <div class="chat-container">
+            <div class="header">
+                🛰️ MOSDAC AI Help Bot
+                <button class="close-btn" id="close-btn">×</button>
+            </div>
+            <div id="chat-box" class="chat-box">
+                <div class="message bot-message">
+                    <p>Hi! I'm here to help. Ask me a question about MOSDAC data!</p>
+                </div>
+            </div>
+            <div class="input-container">
+                <input type="text" id="user-input" placeholder="Ask anything...">
+                <button id="mic-btn" title="Ask with voice">🎤</button>
+                <button id="send-btn" title="Send">➤</button>
             </div>
         </div>
-        <div class="input-container">
-            <input type="text" id="user-input" placeholder="e.g., What data does INSAT-3DR provide?">
-            <button id="mic-btn" title="Ask with voice">🎤</button>
-            <button id="send-btn" title="Send">➤</button>
-        </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
